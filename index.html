@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Keyguard Generator</title><link rel="stylesheet" href="css/app.css"></head><body>
+<header><h1>Keyguard Generator</h1><p>Design an AAC keyguard locally in your browser.</p></header><main><aside>
+<label>Device<select id="device"></select></label><label>Vocabulary<select id="vocab"></select></label>
+<div class="two"><label>Thickness (mm)<input id="thickness" type="number" value="3" min=".5" step=".5"></label><label>Min wall (mm)<input id="wall" type="number" value="3" min=".5" step=".25"></label></div>
+<label>Corner radius (mm)<input id="radius" type="number" value="5" min="0" step=".5"></label>
+<fieldset><legend>Large text opening</legend><label class="check"><input id="largeCell" type="checkbox"> Merge top-row cells</label><div class="two"><label>Start column<input id="mergeStart" type="number" value="1" min="1"></label><label>Cells spanned<input id="mergeSpan" type="number" value="4" min="2"></label></div></fieldset>
+<fieldset><legend>Vocabulary image</legend><label>Screenshot/photo<input id="imageUpload" type="file" accept="image/*"></label><button id="detect">Auto-detect cells</button>
+<div class="two"><label>Threshold<input id="threshold" type="range" min="10" max="120" value="55"></label><label>Min cell (mm)<input id="minCell" type="number" value="18" min="5"></label></div>
+<label>Image opacity<input id="opacity" type="range" min="0" max="1" step=".05" value=".55"></label><div class="two"><label>X<input id="imgX" type="number" value="0"></label><label>Y<input id="imgY" type="number" value="0"></label></div><div class="two"><label>Width<input id="imgW" type="number" value="208"></label><label>Height<input id="imgH" type="number" value="157"></label></div>
+<p class="hint">Detection finds strong rectangular boundaries locally in the browser. Always review the proposed openings.</p></fieldset>
+<fieldset><legend>Editor</legend><p class="hint">Click to select. Shift-click adds to selection. Double-click toggles an opening. Select adjacent openings and merge them.</p><button id="mergeSelected">Merge selected</button><button id="resetGrid">Reset preset</button></fieldset>
+<button class="primary" id="stl">Export STL</button><button id="svgBtn">Export SVG</button><p class="hint">Vocabulary images stay on this device; this app contains no image-upload service.</p>
+</aside><section class="work"><div class="bar"><span id="stats"></span><span id="status"></span></div><svg id="preview"></svg></section></main><script type="module" src="js/app.js"></script></body></html>
